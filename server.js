@@ -1,0 +1,3 @@
+const http=require('http'),fs=require('fs'),path=require('path');
+const root=__dirname, types={'.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.webp':'image/webp','.xml':'application/xml','.txt':'text/plain'};
+http.createServer((req,res)=>{let u=decodeURIComponent(req.url.split('?')[0]); if(u==='/')u='/index.html'; if(!path.extname(u))u+='.html'; let f=path.join(root,u); if(!f.startsWith(root)){res.writeHead(403);return res.end('Forbidden');} fs.readFile(f,(e,d)=>{if(e){res.writeHead(404);return res.end('Not found');}res.writeHead(200,{'Content-Type':types[path.extname(f)]||'application/octet-stream'});res.end(d);});}).listen(process.env.PORT||3000,()=>console.log('Sri Gajamukha site running on port '+(process.env.PORT||3000)));

@@ -1,0 +1,10 @@
+VERCEL DEPLOYMENT CHECKLIST
+1. Extract the ZIP.
+2. Push the folder to GitHub.
+3. In Vercel, Add New > Project > import the repository.
+4. Framework preset: Other.
+5. Build command: npm run build (or leave blank).
+6. Output directory: .
+7. Deploy.
+8. Add your custom domain in Vercel and update canonical URLs in page head tags + sitemap.xml.
+Local preview: npm install (not required), npm start, then http://localhost:3000
